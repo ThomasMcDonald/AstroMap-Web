@@ -14,13 +14,19 @@ var path = require("path");
 
 
 
+if(config.connections.routes){
+  require(__dirname + '/server/utils/routes')(models, controller, app, express)
+}
+
+if(config.connections.sockets){
+  // Add socket require here
+}
+
 if (config.connections.database) {
     // Database connection: (Change this to what your database URL is!)
     mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/theDatabase',{ useNewUrlParser: true });
     var db = mongoose.connection;
 	require(__dirname + '/server/Utils/database.js')(chalk, db);
-
-
 
 	// Models - database Schemas
 	var models = {
@@ -34,6 +40,7 @@ if (config.connections.database) {
 
 }
 
+
 app.use(express.static(__dirname + '/dist'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyPaser);
@@ -44,7 +51,7 @@ var server = app.listen(port, function () {
    console.log("Listening on %s", port)
 })
 
-require(__dirname + '/server/utils/routes')(models, controller, app, express)
+
 
 
 
