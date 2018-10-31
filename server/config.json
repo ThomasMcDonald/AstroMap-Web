@@ -1,0 +1,7 @@
+{
+	"connections": {
+		"routes": true,
+		"sockets": false,
+		"database": false
+	}
+}
