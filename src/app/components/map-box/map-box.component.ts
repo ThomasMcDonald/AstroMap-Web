@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as mapboxgl from 'mapbox-gl';
-import { GeoJson, FeatureCollection } from '../map';
-import { environment } from '../../environments/environment';
+import { GeoJson, FeatureCollection } from '../../utils/map';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'map-box',
@@ -58,6 +58,25 @@ export class MapBoxComponent implements OnInit{
       zoom: 8,
       center: [this.lng, this.lat]
     });
+
+    this.map.addControl(new mapboxgl.GeolocateControl({
+      positionOptions: {
+          enableHighAccuracy: true
+      },
+      trackUserLocation: true
+    }));
   }
+
+
+  /**
+     * This is the implementation Haversine Distance Algorithm between two places
+     *  R = earth’s radius (mean radius = 6,371km)
+    Δlat = lat2− lat1
+    Δlong = long2− long1
+    a = sin²(Δlat/2) + cos(lat1).cos(lat2).sin²(Δlong/2)
+    c = 2.atan2(√a, √(1−a))
+    d = R.c
+     *
+     */
 
 }

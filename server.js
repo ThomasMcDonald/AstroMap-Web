@@ -11,11 +11,12 @@ var bodyPaser = bodyParser.json()
 var port = process.env.PORT || 8080;
 var config = require('./server/config.json');
 var path = require("path");
-
+var multer  = require('multer')
+var upload = multer({ dest: 'server/public/' })
 
 
 if(config.connections.routes){
-  require(__dirname + '/server/utils/routes')(models, controller, app, express)
+  require(__dirname + '/server/utils/routes')(models, controller, app, express, upload)
 }
 
 if(config.connections.sockets){
