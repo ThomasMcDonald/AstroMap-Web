@@ -1,17 +1,10 @@
-# MEAN Template
+# Astronomy Map
 
-Quick start template I use when creating new projects, saves time and energy.
 
-Feel free to use it.
 
-See config.json to change/add functionalities.
-
-```
-{
-"connections": {
-  "routes": true,
-  "sockets": false,
-  "database": false
-  }
-}
-```
+| Todo             | Description                                                             |
+|------------------|-------------------------------------------------------------------------|
+| ~~Image uploader~~ |   ~~upload images from client to server~~                     |
+| Database |   Add database to handle image path, location and other details(TBC)                    |
+| Heatmap | Generate nodes on map for mapbox to create heapmap                |
+| Image Moderation | Create image moderator to reduce the risk of inappropriate content |
