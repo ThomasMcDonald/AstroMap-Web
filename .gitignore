@@ -3,6 +3,7 @@
 
 # Environment
 /src/environments/environment.ts
+/server/public
 
 # compiled output
 /dist
