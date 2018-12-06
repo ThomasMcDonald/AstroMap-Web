@@ -13,10 +13,10 @@ var config = require('./server/config.json');
 var path = require("path");
 var multer  = require('multer')
 var upload = multer({ dest: 'server/public/' })
-
+var sightengine = require('sightengine')('595550575', 'WZCPDD4FqzVXLNUUy2in');
 
 if(config.connections.routes){
-  require(__dirname + '/server/utils/routes')(models, controller, app, express, upload)
+  require(__dirname + '/server/utils/routes')(models, controller, app, express, upload,sightengine)
 }
 
 if(config.connections.sockets){
