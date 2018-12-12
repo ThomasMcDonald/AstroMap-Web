@@ -3,7 +3,11 @@
 
 # Environment
 /src/environments/environment.ts
-/server/public
+/server/public/*
+
+# commit this file to keep public folder.
+!/server/public/.gitkeep
+
 
 # compiled output
 /dist
